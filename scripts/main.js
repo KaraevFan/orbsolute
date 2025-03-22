@@ -8,11 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
         audio = document.createElement('audio');
         audio.setAttribute('type', 'audio/mpeg');
         audio.setAttribute('preload', 'auto');
+        audio.setAttribute('crossorigin', 'anonymous');
         
-        // Create source element
+        // Create source element with modified Cloudinary URL
         const source = document.createElement('source');
-        source.src = 'https://res.cloudinary.com/dlkzuaqpw/video/upload/v1742645938/Anime_Earth_Movement_Opening_pwt0bj.mp3';
+        source.src = 'https://res.cloudinary.com/dlkzuaqpw/video/upload/f_auto,q_auto/v1742645938/Anime_Earth_Movement_Opening_pwt0bj.mp3';
         source.type = 'audio/mpeg';
+        source.setAttribute('crossorigin', 'anonymous');
         
         // Add source to audio element
         audio.appendChild(source);
