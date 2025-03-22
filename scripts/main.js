@@ -4,8 +4,18 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Create audio element
     try {
-        audio = new Audio();
-        audio.src = 'https://res.cloudinary.com/dlkzuaqpw/video/upload/v1742645938/Anime_Earth_Movement_Opening_pwt0bj.mp3';
+        // Create audio element with proper MIME type
+        audio = document.createElement('audio');
+        audio.setAttribute('type', 'audio/mpeg');
+        audio.setAttribute('preload', 'auto');
+        
+        // Create source element
+        const source = document.createElement('source');
+        source.src = 'https://res.cloudinary.com/dlkzuaqpw/video/upload/v1742645938/Anime_Earth_Movement_Opening_pwt0bj.mp3';
+        source.type = 'audio/mpeg';
+        
+        // Add source to audio element
+        audio.appendChild(source);
         
         // Add error handling
         audio.onerror = (e) => {
